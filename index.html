@@ -6,6 +6,7 @@
     <title>EchoFlow - Mood Streaming</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0..1,0">
     <link rel="stylesheet" href="frontend/principal.css">
+
 </head>
 <body>
 
@@ -82,70 +83,19 @@
                                 <th style="width: 15%; text-align: right;"><span class="material-symbols-rounded" style="font-size: 16px;">schedule</span></th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr class="track-row">
-                                <td class="track-index" id="boton1">1</td>
-                                <td class="track-title-cell">
-                                    <div class="track-title-info">
-                                        <span>Dancing Queen</span>
-                                        <span class="track-artist" >ABBA</span>
-
-                                        <audio class="audio-track" id="audio-queen">
-                                            <source src="mp3/ABBA - Dancing Queen (Official Music Video).mp3"> 
-                                              
-                                        </audio>
-                                        
-                                    </div>
-                                    
-                                </td>
-                                <td class="track-album">Synths of Solace</td>
-                                <td class="track-duration">3:31</td>
-                            </tr>
-                            <tr class="track-row">
-                                <td class="track-index">2</td>
-                                <td class="track-title-cell">
-                                    <div class="track-title-info">
-                                        <span>Drift Within</span>
-                                        <span class="track-artist">Astral Dreamer</span>
-                                    </div>
-                                </td>
-                                <td class="track-album">Astral Dreamer</td>
-                                <td class="track-duration">4:47</td>
-                            </tr>
-                            <tr class="track-row">
-                                <td class="track-index">3</td>
-                                <td class="track-title-cell">
-                                    <div class="track-title-info">
-                                        <span>Cival Sitiisn</span>
-                                        <span class="track-artist">Epectrum Rephlats</span>
-                                    </div>
-                                </td>
-                                <td class="track-album">Qulabie Tibes</td>
-                                <td class="track-duration">3:32</td>
-                            </tr>
-                            <tr class="track-row active">
+                        <tbody id="lista-canciones">
+                            <tr class="track-row" data-url="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" style="cursor: pointer;">
                                 <td class="track-index">
                                     <span class="material-symbols-rounded" style="font-size: 16px; color: var(--accent-color);">play_arrow</span>
                                 </td>
                                 <td class="track-title-cell">
                                     <div class="track-title-info">
-                                        <span>Your Mood Flow - Chill Vibes</span>
-                                        <span class="track-artist">Synths of Solace</span>
+                                        <span id="titulo-fila">Dancing Queen</span>
+                                        <span class="track-artist" id="artista-fila">ABBA</span>
                                     </div>
                                 </td>
-                                <td class="track-album">Synths Vilaos</td>
-                                <td class="track-duration" style="color: var(--accent-color);">3:45</td>
-                            </tr>
-                            <tr class="track-row">
-                                <td class="track-index">5</td>
-                                <td class="track-title-cell">
-                                    <div class="track-title-info">
-                                        <span>Goof Selle Gibert</span>
-                                        <span class="track-artist">Aaoron Trocher</span>
-                                    </div>
-                                </td>
-                                <td class="track-album">Consialent</td>
-                                <td class="track-duration">4:58</td>
+                                <td class="track-album">Arrival</td>
+                                <td class="track-duration">3:31</td>
                             </tr>
                         </tbody>
                     </table>
@@ -155,11 +105,13 @@
     </div>
 
     <footer class="player-bar">
+        <audio id="reproductor-principal" src=""></audio>
+
         <div class="player-track-info">
             <div class="player-mini-cover"></div>
             <div class="player-text-details">
-                <h4>Your Mood Flow - Chill Vibes</h4>
-                <p>Synths of Solace</p>
+                <h4 id="player-titulo">Dancing Queen</h4>
+                <p id="player-artista">ABBA</p>
             </div>
             <span class="material-symbols-rounded like-btn">favorite</span>
         </div>
@@ -168,16 +120,16 @@
             <div class="control-buttons">
                 <span class="material-symbols-rounded">shuffle</span>
                 <span class="material-symbols-rounded">skip_previous</span>
-                <span class="material-symbols-rounded play-btn">pause</span>
+                <span class="material-symbols-rounded play-btn" id="btn-footer-play">play_arrow</span>
                 <span class="material-symbols-rounded">skip_next</span>
                 <span class="material-symbols-rounded">repeat</span>
             </div>
             <div class="playback-bar">
-                <span>1:23</span>
+                <span>0:00</span>
                 <div class="progress-bar-container">
                     <div class="progress-bar-fill"></div>
                 </div>
-                <span>3:45</span>
+                <span>3:31</span>
             </div>
         </div>
 
@@ -193,6 +145,7 @@
         </div>
     </footer>
 
+    <script src="frontend/funcionamiento.js"></script>
+    
 </body>
-<script src="frontend/funcionamiento.js"></script>
 </html>

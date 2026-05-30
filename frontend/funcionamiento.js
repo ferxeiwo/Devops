@@ -1,13 +1,27 @@
-const boton = document.querySelector("#boton1");
-const audio_queen = document.querySelector("#audio-queen");
+const reproductor = document.querySelector("#reproductor-principal");
+const filaCancion = document.querySelector(".track-row");
 
-boton.addEventListener("click", function() {
-    // ¿La canción está pausada?
-    if (audio_queen.paused) {
-        audio_queen.play(); // SÍ está pausada, entonces dale Play
-        console.log("Reproduciendo música...");
-    } else {
-        audio_queen.pause(); // NO está pausada (está sonando), entonces paúsala
-        console.log("Música pausada.");
-    }
+// 1. Detectamos el clic en tu fila del HTML
+filaCancion.addEventListener("click", function() {
+    
+    // 2. Llamamos al PHP
+    fetch('backend/datos.php')
+        .then(respuesta => respuesta.json())
+        .then(datos => {
+            
+            // Si PHP nos mandó un error de base de datos, lo mostramos
+            if(datos.error) {
+                console.error(datos.error);
+                return;
+            }
+
+            // 3. Le pasamos la URL que encontró PHP al reproductor
+            reproductor.src = datos.url;
+            reproductor.play();
+            console.log("¡Éxito! Reproduciendo desde la BD: " + datos.url);
+            
+        })
+        .catch(error => {
+            console.error("Sigue saliendo HTML en vez de JSON:", error);
+        });
 });
