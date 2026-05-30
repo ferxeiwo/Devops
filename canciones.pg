@@ -1,0 +1,20 @@
+CREATE TABLE canciones (
+    id SERIAL PRIMARY KEY,
+    titulo VARCHAR(100) NOT NULL,
+    artista VARCHAR(100) NOT NULL,
+    album VARCHAR(100) NOT NULL,
+    duracion VARCHAR(10) NOT NULL,
+    archivo_mp3 VARCHAR(255) NOT NULL,
+    mood VARCHAR(30) NOT NULL
+);
+
+select * from canciones
+
+
+
+INSERT INTO canciones (titulo, artista, album, duracion, archivo_mp3, mood) VALUES 
+('Dancing Queen', 'ABBA', 'Arrival', '3:31', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3', 'chill'),
+('Solar Plexus', 'Synths of Solace', 'Synths of Solace', '3:31', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3', 'chill'),
+('Drift Within', 'Astral Dreamer', 'Astral Dreamer', '4:47', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3', 'chill'),
+('Cival Sitiisn', 'Epectrum Rephlats', 'Qulabie Tibes', '3:32', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3', 'chill'),
+('Goof Selle Gibert', 'Aaoron Trocher', 'Consialent', '4:58', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3', 'chill');
